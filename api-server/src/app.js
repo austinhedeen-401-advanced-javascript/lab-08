@@ -10,11 +10,10 @@ const errorHandler = require( './middleware/error.js');
 const notFound = require( './middleware/404.js' );
 
 // Models
-// TODO: Pull these in (or create them)!
-const Products = require('./models/products.js');
+const Products = require('./models/products/products.js');
 const products = new Products();
 
-const Categories = require('./models/categories.js');
+const Categories = require('./models/categories/categories.js');
 const categories = new Categories();
 
 // Prepare the express app
@@ -67,7 +66,7 @@ function getCategory(request,response,next) {
 
 function postCategories(request,response,next) {
   // expects the record that was just added to the database
-  categories.post(request.body)
+  categories.create(request.body)
     .then( result => response.status(200).json(result[0]) )
     .catch( next );
 }
@@ -75,7 +74,7 @@ function postCategories(request,response,next) {
 
 function putCategories(request,response,next) {
   // expects the record that was just updated in the database
-  categories.put(request.params.id, request.body)
+  categories.update(request.params.id, request.body)
     .then( result => response.status(200).json(result[0]) )
     .catch( next );
 }
@@ -110,7 +109,7 @@ function getProduct(request,response,next) {
 
 function postProducts(request,response,next) {
   // expects the record that was just added to the database
-  products.post(request.body)
+  products.create(request.body)
     .then( result => response.status(200).json(result) )
     .catch( next );
 }
@@ -118,7 +117,7 @@ function postProducts(request,response,next) {
 
 function putProducts(request,response,next) {
   // expects the record that was just updated in the database
-  products.put(request.params.id, request.body)
+  products.update(request.params.id, request.body)
     .then( result => response.status(200).json(result) )
     .catch( next );
 }
