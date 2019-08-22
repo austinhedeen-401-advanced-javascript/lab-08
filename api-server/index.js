@@ -7,6 +7,7 @@ const mongooseOptions = {
   useNewUrlParser:true,
   useCreateIndex: true,
 };
-mongoose.connect(process.env.MONGODB_URI, mongooseOptions);
+mongoose.connect(process.env.MONGODB_URI, mongooseOptions)
+  .catch(console.error);
 
 require('./src/app.js').start(process.env.PORT);
