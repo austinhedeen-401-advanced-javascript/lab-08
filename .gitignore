@@ -1,3 +1,6 @@
+# Database files
+.db/
+
 # Created by https://www.gitignore.io/api/node,windows,webstorm+all
 # Edit at https://www.gitignore.io/?templates=node,windows,webstorm+all
 
