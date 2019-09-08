@@ -6,10 +6,44 @@ const router = express.Router();
 const Products = require('../models/products/products');
 const products = new Products();
 
+/**
+ * Get an object of the result count and a list of products.
+ * @route GET /products
+ * @returns {object} 200 { count: 2, results: [ {}, {} ] }
+ * @returns {Error}  500 - Server error
+ */
 router.get('/', getProducts);
+
+/**
+ * Create a product and return the created record.
+ * @route POST /products
+ * @returns {object} 200 - A product object
+ * @returns {Error}  500 - Server error
+ */
 router.post('/', postProducts);
+
+/**
+ * Get a product matching the given id.
+ * @route GET /products/:id
+ * @returns {object} 200 - A product object
+ * @returns {Error}  500 - Server error
+ */
 router.get('/:id', getProduct);
+
+/**
+ * Update the product with the matching id.
+ * @route PUT /products/:id
+ * @returns {object} 200 - A product object
+ * @returns {Error}  500 - Server error
+ */
 router.put('/:id', putProducts);
+
+/**
+ * Delete the product matching the id.
+ * @route DELETE /products/:id
+ * @returns {object} 200 - A product object
+ * @returns {Error}  500 - Server error
+ */
 router.delete('/:id', deleteProducts);
 
 function getProducts(request,response,next) {

@@ -6,10 +6,44 @@ const router = express.Router();
 const Categories = require('../models/categories/categories.js');
 const categories = new Categories();
 
+/**
+ * Get an object of the result count and a list of categories.
+ * @route GET /categories
+ * @returns {object} 200 { count: 2, results: [ {}, {} ] }
+ * @returns {Error}  500 - Server error
+ */
 router.get('/', getCategories);
+
+/**
+ * Create a category and return the created record.
+ * @route POST /categories
+ * @returns {object} 200 - A category object
+ * @returns {Error}  500 - Server error
+ */
 router.post('/', postCategories);
+
+/**
+ * Get a category matching the given id.
+ * @route GET /categories/:id
+ * @returns {object} 200 - A category object
+ * @returns {Error}  500 - Server error
+ */
 router.get('/:id', getCategory);
+
+/**
+ * Update the category with the matching id.
+ * @route PUT /categories/:id
+ * @returns {object} 200 - A category object
+ * @returns {Error}  500 - Server error
+ */
 router.put('/:id', putCategories);
+
+/**
+ * Delete the category matching the id.
+ * @route DELETE /categories/:id
+ * @returns {object} 200 - A category object
+ * @returns {Error}  500 - Server error
+ */
 router.delete('/:id', deleteCategories);
 
 function getCategories(request,response,next) {
