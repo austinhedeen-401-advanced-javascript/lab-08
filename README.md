@@ -42,4 +42,4 @@ Starts the Express server on `port`
 * `npm test`
 
 #### UML
-
+![](assets/lab-08.png)
