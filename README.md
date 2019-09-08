@@ -7,6 +7,7 @@
 ### Links and Resources
 * [submission PR](https://github.com/austinhedeen-401-advanced-javascript/lab-08/pull/1)
 * [travis](https://travis-ci.org/austinhedeen-401-advanced-javascript/lab-08/pull_requests)
+* [deployment](https://serene-gorge-98085.herokuapp.com/)
 
 ### Modules
 #### `app.js`
@@ -25,6 +26,10 @@ Starts the Express server on `port`
 
 #### Running the app
 * `npm start`
+* Endpoint: `/api-docs`
+  * Renders API Documentation
+* Endpoint: `/docs`
+  * Renders Developer Documentation
 * Endpoint: `/api/v1/categories/`
   * GET: Fetch all Categories
   * POST: Create a Category
